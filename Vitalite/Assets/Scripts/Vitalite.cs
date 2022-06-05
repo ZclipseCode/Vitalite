@@ -13,6 +13,7 @@ public class Vitalite : MonoBehaviour
     private SpriteRenderer renderer2d;
     private Animator animator;
     private bool faceRight;
+    private bool faceRightJump;
     private void Start() //set to private, I don't know if this matters
     {
         //movement
@@ -22,6 +23,7 @@ public class Vitalite : MonoBehaviour
         renderer2d = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         faceRight = true;
+        faceRightJump = true;
     }
 
     private void Update() //set to private, I don't know if this matters
@@ -42,6 +44,19 @@ public class Vitalite : MonoBehaviour
         } else if (Mathf.Abs(rigidbody2d.velocity.y) > 0.001f) //jump
         {
             animator.SetInteger("AnimState", 4);
+
+            if (faceRightJump && movement > 0)
+            {
+                renderer2d.flipX = false;
+
+                faceRightJump = false;
+            }
+            else if (!faceRightJump && movement < 0)
+            {
+                renderer2d.flipX = true;
+
+                faceRightJump = true;
+            }
         } else if (movement > 0) //right
         {
             if (faceRight == false)
