@@ -1099,12 +1099,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe7eb7b77bda75d4db6610fba2b389f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  maxVelocity: {x: 3, y: 3}
-  faceLeft: 0
-  groundLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
+  MovementSpeed: 3
+  JumpForce: 5
 --- !u!1 &1117158121
 GameObject:
   m_ObjectHideFlags: 0
