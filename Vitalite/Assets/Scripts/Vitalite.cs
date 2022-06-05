@@ -12,6 +12,8 @@ public class Vitalite : MonoBehaviour
     private Rigidbody2D body2D;
     private SpriteRenderer renderer2D;
     private Animator animator;
+    private BoxCollider2D boxCollider2d;
+    [SerializeField] private LayerMask groundLayerMask;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +21,7 @@ public class Vitalite : MonoBehaviour
         body2D = GetComponent<Rigidbody2D>();
         renderer2D = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        boxCollider2d = transform.GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -61,13 +64,19 @@ public class Vitalite : MonoBehaviour
             animator.SetInteger("AnimState", 0);
         }
 
+        body2D.AddForce(new Vector2(forceX, forceY));
+
         //jump
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
         {
-            float jumpVelocity = 10f;
+            float jumpVelocity = 6f;
             body2D.velocity = Vector2.up * jumpVelocity;
         }
+    }
 
-        body2D.AddForce(new Vector2 (forceX, forceY));
+    private bool IsGrounded()
+    {
+        RaycastHit2D raycastHit2d = Physics2D.BoxCast(boxCollider2d.bounds.center, boxCollider2d.bounds.size, 0f, Vector2.down * .1f, groundLayerMask);
+        return raycastHit2d.collider;
     }
 }
