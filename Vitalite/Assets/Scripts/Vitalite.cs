@@ -38,7 +38,11 @@ public class Vitalite : MonoBehaviour
         }
 
         //animation
-        if (movement == 0 && Mathf.Abs(rigidbody2d.velocity.y) < 0.001f) //still
+        if (Input.GetMouseButtonDown(0))
+        {
+            animator.SetInteger("AnimState", 2);
+        }
+         else if (movement == 0 && Mathf.Abs(rigidbody2d.velocity.y) < 0.001f) //still
         {
             animator.SetInteger("AnimState", 0);
         } else if (Mathf.Abs(rigidbody2d.velocity.y) > 0.001f) //jump

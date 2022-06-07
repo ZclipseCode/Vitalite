@@ -8,6 +8,9 @@ public class Goblin : MonoBehaviour
     private SpriteRenderer renderer2d;
     private Animator animator;
 
+    //health
+    public float health;
+
     void Start()
     {
         //animation
@@ -24,5 +27,16 @@ public class Goblin : MonoBehaviour
         {
             animator.SetInteger("AnimState", 0);
         }
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    //health
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
     }
 }
