@@ -1221,6 +1221,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 771808786, guid: 903be29636210bf44bfe48ce1f5ee674, type: 3}
+      propertyPath: JumpForce
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3902405399981572050, guid: 903be29636210bf44bfe48ce1f5ee674, type: 3}
       propertyPath: m_Name
       value: Vitalite
