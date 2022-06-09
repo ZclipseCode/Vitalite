@@ -19,7 +19,7 @@ public class VitaliteAttack : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                animator.SetInteger("AnimState", 2);
+                //animator.SetTrigger("Attack");
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {

@@ -14,6 +14,10 @@ public class Vitalite : MonoBehaviour
     private Animator animator;
     private bool faceRight;
     private bool faceRightJump;
+
+    private bool inAttack;
+    private float attackAnimTime;
+
     private void Start() //set to private, I don't know if this matters
     {
         //movement
@@ -24,6 +28,7 @@ public class Vitalite : MonoBehaviour
         animator = GetComponent<Animator>();
         faceRight = true;
         faceRightJump = true;
+        inAttack = false;
     }
 
     private void Update() //set to private, I don't know if this matters
@@ -40,12 +45,25 @@ public class Vitalite : MonoBehaviour
         //animation
         if (Input.GetMouseButtonDown(0))
         {
-            animator.SetInteger("AnimState", 2);
+            inAttack = true;
         }
-         else if (movement == 0 && Mathf.Abs(rigidbody2d.velocity.y) < 0.001f) //still
+
+        if (inAttack) 
+        {
+            animator.SetInteger("AnimState", 2);
+            attackAnimTime += Time.deltaTime;
+
+            if (attackAnimTime >= 0.6f)
+            {
+                inAttack = false;
+                attackAnimTime = 0;
+            }
+        }
+        else if (movement == 0 && Mathf.Abs(rigidbody2d.velocity.y) < 0.001f && !inAttack) //still
         {
             animator.SetInteger("AnimState", 0);
-        } else if (Mathf.Abs(rigidbody2d.velocity.y) > 0.001f) //jump
+        }
+        else if (Mathf.Abs(rigidbody2d.velocity.y) > 0.001f) //jump
         {
             animator.SetInteger("AnimState", 4);
 
@@ -61,7 +79,8 @@ public class Vitalite : MonoBehaviour
 
                 faceRightJump = true;
             }
-        } else if (movement > 0) //right
+        }
+        else if (movement > 0) //right
         {
             if (faceRight == false)
             {
@@ -71,8 +90,10 @@ public class Vitalite : MonoBehaviour
             }
 
             animator.SetInteger("AnimState", 1);
-        } else if (movement < 0) { //left
-            if(faceRight == true)
+        }
+        else if (movement < 0)
+        { //left
+            if (faceRight == true)
             {
                 renderer2d.flipX = true;
 
