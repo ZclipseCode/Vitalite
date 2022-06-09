@@ -13,6 +13,11 @@ public class VitaliteAttack : MonoBehaviour
     public float attackRange;
     public int damage;
 
+    void Start()
+    {
+        
+    }
+
     void Update()
     {
       if (timeBtwAttack <= 0)
@@ -25,9 +30,10 @@ public class VitaliteAttack : MonoBehaviour
                 {
                     enemiesToDamage[i].GetComponent<Goblin>().TakeDamage(damage);
                 }
+
+                timeBtwAttack = startTimeBtwAttack;
             }
 
-            timeBtwAttack = startTimeBtwAttack;
         }  else
         {
             timeBtwAttack -= Time.deltaTime;
