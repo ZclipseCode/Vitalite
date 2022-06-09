@@ -13,9 +13,11 @@ public class VitaliteAttack : MonoBehaviour
     public float attackRange;
     public int damage;
 
+    private bool faceRight;
+
     void Start()
     {
-        
+        faceRight = true;
     }
 
     void Update()
@@ -37,6 +39,24 @@ public class VitaliteAttack : MonoBehaviour
         }  else
         {
             timeBtwAttack -= Time.deltaTime;
+        }
+
+      if (Input.GetKeyDown(KeyCode.D))
+        {
+            faceRight = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            faceRight = false;
+        }
+
+      if (faceRight)
+        {
+            attackPos.transform.localPosition = new Vector3(0.33f, 0.43f);
+        } else
+        {
+            attackPos.transform.localPosition = new Vector3(-0.33f, 0.43f);
         }
     }
 

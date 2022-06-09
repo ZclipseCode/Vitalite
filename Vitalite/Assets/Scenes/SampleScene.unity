@@ -1153,6 +1153,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 258212634, guid: 903be29636210bf44bfe48ce1f5ee674, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 2022513544, guid: 903be29636210bf44bfe48ce1f5ee674, type: 3}
+      propertyPath: attackPosLeft
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3902405399981572050, guid: 903be29636210bf44bfe48ce1f5ee674, type: 3}
       propertyPath: m_Name
       value: Vitalite
