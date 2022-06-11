@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//A*
+using Pathfinding;
 
 public class Goblin : MonoBehaviour
 {
@@ -14,6 +16,9 @@ public class Goblin : MonoBehaviour
     //health
     public float health;
     private float tempHealth;
+
+    //A*
+    public AIPath aiPath;
 
     void Start()
     {
@@ -30,11 +35,26 @@ public class Goblin : MonoBehaviour
     void Update()
     {
         //movement
-        var movement = Input.GetAxis("Horizontal");
+        //var movement = Input.GetAxis("Horizontal"); //this tracks player input
+        var movement = transform.position.x;
+
+        //A*
+        if (aiPath.desiredVelocity.x >= 0.01f)
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+
+        } else if (aiPath.desiredVelocity.x <= -0.01f)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+
         //animation
         if (movement == 0)
         {
             animator.SetInteger("AnimState", 0);
+        } else
+        {
+            animator.SetInteger("AnimState", 1);
         }
 
         if (tempHealth != health && health <= 0)
