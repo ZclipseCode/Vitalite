@@ -16,9 +16,13 @@ public class Goblin : MonoBehaviour
     //health
     public float health;
     private float tempHealth;
+    public Rigidbody2D rb;
+    public BoxCollider2D bc;
+    public CircleCollider2D cc;
 
     //A*
     public AIPath aiPath;
+    public AIBase aibase;
 
     void Start()
     {
@@ -39,15 +43,19 @@ public class Goblin : MonoBehaviour
         var movement = transform.position.x;
 
         //A*
-        if (aiPath.desiredVelocity.x >= 0.01f)
+        if (health > 0)
         {
-            transform.localScale = new Vector3(1f, 1f, 1f);
+            if (aiPath.desiredVelocity.x >= 0.01f)
+            {
+                transform.localScale = new Vector3(1f, 1f, 1f);
 
-        } else if (aiPath.desiredVelocity.x <= -0.01f)
-        {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
+            }
+            else if (aiPath.desiredVelocity.x <= -0.01f)
+            {
+                transform.localScale = new Vector3(-1f, 1f, 1f);
+            }
         }
-
+        
         //animation
         if (movement == 0)
         {
@@ -61,6 +69,10 @@ public class Goblin : MonoBehaviour
         {
             hitAnimTime += Time.deltaTime;
             animator.SetInteger("AnimState", 4);
+            aibase.maxSpeed = 0f;
+            Destroy(rb);
+            Destroy(bc);
+            Destroy(cc);
             isFading = true;
             if (isFading && !fadeActivated)
             {
