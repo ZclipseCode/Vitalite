@@ -324,21 +324,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &704689111 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 4252988462858215072, guid: f6ddb04efee74794183c4b0aceabbe01, type: 3}
-  m_PrefabInstance: {fileID: 6555271419856320585}
-  m_PrefabAsset: {fileID: 0}
---- !u!58 &704689112 stripped
-CircleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 4252988462858215073, guid: f6ddb04efee74794183c4b0aceabbe01, type: 3}
-  m_PrefabInstance: {fileID: 6555271419856320585}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &704689113 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 4252988462858215074, guid: f6ddb04efee74794183c4b0aceabbe01, type: 3}
-  m_PrefabInstance: {fileID: 6555271419856320585}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &749032480
 GameObject:
   m_ObjectHideFlags: 0
@@ -1250,22 +1235,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1005532769 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6555271420767718952, guid: f6ddb04efee74794183c4b0aceabbe01, type: 3}
-  m_PrefabInstance: {fileID: 6555271419856320585}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1005532771 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6555271420767718954, guid: f6ddb04efee74794183c4b0aceabbe01, type: 3}
-  m_PrefabInstance: {fileID: 6555271419856320585}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1005532769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1117158121
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,14 +1374,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 258212634, guid: 903be29636210bf44bfe48ce1f5ee674, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 2022513544, guid: 903be29636210bf44bfe48ce1f5ee674, type: 3}
-      propertyPath: attackPosLeft
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3902405399981572050, guid: 903be29636210bf44bfe48ce1f5ee674, type: 3}
       propertyPath: m_Name
       value: Vitalite
@@ -1470,30 +1431,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4252988462858215079, guid: f6ddb04efee74794183c4b0aceabbe01, type: 3}
-      propertyPath: bc
-      value: 
-      objectReference: {fileID: 704689111}
-    - target: {fileID: 4252988462858215079, guid: f6ddb04efee74794183c4b0aceabbe01, type: 3}
-      propertyPath: cc
-      value: 
-      objectReference: {fileID: 704689112}
-    - target: {fileID: 4252988462858215079, guid: f6ddb04efee74794183c4b0aceabbe01, type: 3}
-      propertyPath: rb
-      value: 
-      objectReference: {fileID: 704689113}
-    - target: {fileID: 4252988462858215079, guid: f6ddb04efee74794183c4b0aceabbe01, type: 3}
-      propertyPath: aigo
-      value: 
-      objectReference: {fileID: 1005532769}
-    - target: {fileID: 4252988462858215079, guid: f6ddb04efee74794183c4b0aceabbe01, type: 3}
-      propertyPath: aibase
-      value: 
-      objectReference: {fileID: 1005532771}
-    - target: {fileID: 4252988462858215079, guid: f6ddb04efee74794183c4b0aceabbe01, type: 3}
-      propertyPath: aiPathScript
-      value: 
-      objectReference: {fileID: 1005532769}
+    - target: {fileID: 4842886514049141788, guid: f6ddb04efee74794183c4b0aceabbe01, type: 3}
+      propertyPath: attackRange
+      value: 0.42
+      objectReference: {fileID: 0}
     - target: {fileID: 6555271420767718952, guid: f6ddb04efee74794183c4b0aceabbe01, type: 3}
       propertyPath: m_Name
       value: EnemyGoblin
