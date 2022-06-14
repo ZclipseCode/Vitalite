@@ -12,6 +12,7 @@ public class Goblin : MonoBehaviour
     private float hitAnimTime;
     private bool isFading;
     private bool fadeActivated;
+    private bool attackAni;
 
     //health
     public float health;
@@ -31,6 +32,7 @@ public class Goblin : MonoBehaviour
         animator = GetComponent<Animator>();
         isFading = false;
         fadeActivated = false;
+        attackAni = false;
 
         //health
         tempHealth = health;
@@ -94,6 +96,12 @@ public class Goblin : MonoBehaviour
                 tempHealth = health;
             }
         }
+
+        if (attackAni)
+        {
+            animator.SetInteger("AnimState", 2);
+            attackAni = false;
+        }
     }
 
     //health
@@ -117,5 +125,14 @@ public class Goblin : MonoBehaviour
     public void startFading()
     {
         StartCoroutine("FadeOut");
+    }
+
+    //animation (maybe improved???)
+    public void Animation(int aniNum)
+    {
+        if (aniNum == 2)
+        {
+            attackAni = true;
+        }
     }
 }
