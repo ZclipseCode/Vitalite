@@ -15,6 +15,11 @@ public class VitaliteAttack : MonoBehaviour
 
     private bool faceRight;
 
+    //knockback
+    public float thrust;
+    public Rigidbody2D enemy;
+    public float knockTime;
+
     void Start()
     {
         faceRight = true;
@@ -26,11 +31,20 @@ public class VitaliteAttack : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                //animator.SetTrigger("Attack");
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
                     enemiesToDamage[i].GetComponent<Goblin>().TakeDamage(damage);
+
+                    //knockback
+                    if (enemy != null)
+                    {
+                        enemy.isKinematic = false;
+                        Vector2 difference = enemy.transform.position - transform.position;
+                        difference = difference.normalized * thrust;
+                        enemy.AddForce(difference, ForceMode2D.Impulse);
+                        StartCoroutine(KnockCo(enemy));
+                    }
                 }
 
                 timeBtwAttack = startTimeBtwAttack;
@@ -64,5 +78,16 @@ public class VitaliteAttack : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPos.position, attackRange);
+    }
+
+    //knockback
+    private IEnumerator KnockCo(Rigidbody2D enemy)
+    {
+        if (enemy != null)
+        {
+            yield return new WaitForSeconds(knockTime);
+            enemy.velocity = Vector2.zero;
+            enemy.isKinematic = true;
+        }
     }
 }

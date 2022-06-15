@@ -41,22 +41,21 @@ public class Goblin : MonoBehaviour
     void Update()
     {
         //movement
-        //var movement = Input.GetAxis("Horizontal"); //this tracks player input
         var movement = transform.position.x;
 
         //A*
-        if (health > 0)
-        {
-            if (aiPath.desiredVelocity.x >= 0.01f)
+            if (health > 0)
             {
-                transform.localScale = new Vector3(1f, 1f, 1f);
+                if (aiPath.desiredVelocity.x >= 0.01f)
+                {
+                    transform.localScale = new Vector3(1f, 1f, 1f);
 
+                }
+                else if (aiPath.desiredVelocity.x <= -0.01f)
+                {
+                    transform.localScale = new Vector3(-1f, 1f, 1f);
+                }
             }
-            else if (aiPath.desiredVelocity.x <= -0.01f)
-            {
-                transform.localScale = new Vector3(-1f, 1f, 1f);
-            }
-        }
         
         //animation
         if (movement == 0)

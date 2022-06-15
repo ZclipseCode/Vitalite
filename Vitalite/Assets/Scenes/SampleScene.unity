@@ -1245,6 +1245,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!50 &1018558234 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 4252988462858215074, guid: f6ddb04efee74794183c4b0aceabbe01, type: 3}
+  m_PrefabInstance: {fileID: 6555271419856320585}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1037976973
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,6 +1329,32 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3902405399981572055, guid: 903be29636210bf44bfe48ce1f5ee674, type: 3}
   m_PrefabInstance: {fileID: 3902405400686191065}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1222703428 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6555271420767718952, guid: f6ddb04efee74794183c4b0aceabbe01, type: 3}
+  m_PrefabInstance: {fileID: 6555271419856320585}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1222703433
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222703428}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1956606342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1414,6 +1445,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2022513544, guid: 903be29636210bf44bfe48ce1f5ee674, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 1018558234}
+    - target: {fileID: 2022513544, guid: 903be29636210bf44bfe48ce1f5ee674, type: 3}
+      propertyPath: thrust
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2022513544, guid: 903be29636210bf44bfe48ce1f5ee674, type: 3}
+      propertyPath: knockTime
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 3902405399981572050, guid: 903be29636210bf44bfe48ce1f5ee674, type: 3}
       propertyPath: m_Name
       value: Vitalite
@@ -1486,6 +1529,18 @@ PrefabInstance:
     - target: {fileID: 6555271420767718952, guid: f6ddb04efee74794183c4b0aceabbe01, type: 3}
       propertyPath: m_Name
       value: EnemyGoblin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555271420767718954, guid: f6ddb04efee74794183c4b0aceabbe01, type: 3}
+      propertyPath: gravity.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555271420767718954, guid: f6ddb04efee74794183c4b0aceabbe01, type: 3}
+      propertyPath: gravity.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555271420767718954, guid: f6ddb04efee74794183c4b0aceabbe01, type: 3}
+      propertyPath: gravity.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6555271420767718955, guid: f6ddb04efee74794183c4b0aceabbe01, type: 3}
       propertyPath: target
